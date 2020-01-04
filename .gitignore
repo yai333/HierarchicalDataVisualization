@@ -1,0 +1,29 @@
+# Distribution / packaging
+.Python
+*.pyc
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+.git
+.pytest_cache
+node_modules/
+__pycache__/
+
+# Serverless directories
+.serverless
+.dynamodb
+Pipfile.lock
+Pipfile
+libLayer/layer/*

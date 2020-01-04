@@ -1,0 +1,60 @@
+service: hierarchydatavisualization
+
+provider:
+  timeout: 300
+  name: aws
+  runtime: python3.7
+  region: ${opt:region, 'ap-southeast-2'}
+  stage: ${opt:stage, 'dev'}
+  apiKeys:
+    - demo-api-key-${opt:stage, 'dev'}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:*"
+      Resource: arn:aws:s3:::${self:custom.S3bucket}/*
+  environment:
+    STAGE: ${self:provider.stage}
+    S3_BUCKET: ${self:custom.S3bucket}
+
+package:
+  include:
+    - "src/*.py"
+  exclude:
+    - "**/*"
+
+custom:
+  pythonRequirements:
+    fileName: requirements.txt
+    layer: true
+    dockerizePip: non-linux
+    useStaticCache: true
+  S3bucket: aiyi.data.visualization
+
+functions:
+  exportHierarchicalData2S3:
+    handler: src/handler.export_hierarchical_data2S3
+    layers:
+      - { Ref: PythonRequirementsLambdaLayer }
+    events:
+      - s3:
+          bucket: ${self:custom.S3bucket}
+          event: s3:ObjectCreated:*
+          maximumRetryAttempts: 2
+          rules:
+            - prefix: ${self:provider.stage}/uploads/
+            - suffix: .csv
+  getHierarchicalData:
+    handler: src/handler.get_hierarchical_data
+    events:
+      - http:
+          path: employees/
+          method: get
+          cors: true
+          private: true
+          request:
+            parameters:
+              querystrings:
+                file_key: true
+plugins:
+  - serverless-python-requirements
