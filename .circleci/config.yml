@@ -17,7 +17,6 @@ jobs:
       - run:
           command: |
             sudo pip install pipenv
-            pipenv install
             pipenv install -r requirements.dev.txt
       - save_cache:
           key: dev-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
@@ -28,9 +27,9 @@ jobs:
       - restore_cache:
           key: dev-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
-        command: |
-          pipenv shell
-          cd test && pytest -s
+          command: |
+            cd test
+            pipenv run pytest -s
 
   deploy:
     working_directory: ~/app
@@ -62,7 +61,6 @@ jobs:
       - run:
           command: |
             sudo pip install pipenv
-            pipenv install
             pipenv install -r requirements.txt
       - save_cache:
           key: deploy-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
