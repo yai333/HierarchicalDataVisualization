@@ -2,12 +2,20 @@
 
 # Present hierarchical relationship data
 
-This is demo how to convert csv with multi levels relationship data to hierarchical tabular view, it includes 2 solutions:
+This is pipeline demo how to convert csv with multi levels relationship data to hierarchical tabular view, it includes 2 solutions:
 
 ![](preview_.jpg)
 
 - Running in Jupiter notebook (HierarchyDataVisualization.ipynb).
 - Serverless solution using AWS S3, Lambda, Api Gateway.
+
+# Overview of the Pipeline
+
+- Upload csv file to an S3 bucket.
+- A S3 event trigger will invoke an AWS Lambda function, which will convert multi levels relationship data to -hierarchical tabular data frame and put the object to S3 output bucket.
+- A Http Api endpoint can also get hierarchical data in JSON format by file key uploaded to S3.
+
+![](diagram.jpg)
 
 # Prerequisites
 
@@ -18,10 +26,6 @@ The following must be done before following this guide:
 - Install AWS CLI.
 - Install Serverless Framework.
 - Install pip libs from requirment.dev.txt for unit test or requirements.text for deployment
-
-# Diagram
-
-![](diagram.jpg)
 
 # CI/CD
 
