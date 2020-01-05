@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/yai333/HierarchicalDataVisualization.svg?style=svg)](https://circleci.com/gh/yai333/HierarchicalDataVisualization)
+
 # Present hierarchical relationship data
 
 This is demo how to convert csv with multi levels relationship data to hierarchical tabular view, it includes 2 solutions:

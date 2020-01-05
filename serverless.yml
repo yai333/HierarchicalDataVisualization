@@ -46,6 +46,8 @@ functions:
             - suffix: .csv
   getHierarchicalData:
     handler: src/handler.get_hierarchical_data
+    layers:
+      - { Ref: PythonRequirementsLambdaLayer }
     events:
       - http:
           path: employees
