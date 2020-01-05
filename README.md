@@ -2,7 +2,7 @@
 
 This is demo how to convert csv with multi levels relationship data to hierarchical tabular view, it includes 2 solutions:
 
-![](preview.jpg)
+![](preview_.jpg)
 
 - Running in Jupiter notebook (HierarchyDataVisualization.ipynb).
 - Serverless solution using AWS S3, Lambda, Api Gateway.
