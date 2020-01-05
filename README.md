@@ -16,6 +16,7 @@ If you want to test and deploy locally, The following must be done before follow
 - Configure the AWS CLI with user credentials.
 - Install AWS CLI.
 - Install Serverless Framework.
+- Install pip libs from requirment.dev.txt for unit test or requirements.text for deployment
 
 # Diagram
 
@@ -23,7 +24,7 @@ If you want to test and deploy locally, The following must be done before follow
 
 # Run script in Jupiter notebook
 
-[HierarchyDataVisualization.ipynb]HierarchyDataVisualization.ipynb
+[HierarchyDataVisualization.ipynb](HierarchyDataVisualization.ipynb)
 
 # Setup local environment
 
@@ -41,7 +42,7 @@ Once you deploy your service, the value of those API keys will be auto generated
 sls deploy --stage dev --region YOUR-REGION --aws-profile YOUR-PROFILE
 ```
 
-# Test
+# Run Program
 
 Upload demo csv file to S3 bucket which you defined in `serverless.yml`:
 
@@ -55,4 +56,15 @@ You can also call REST Api to get a json ouput:
 
 ```
 curl -X GET -H "x-api-key: DEPLOYED_API_KEY" -H "Content-Type: application/json" https://XXXXXX.execute-api.ap-southeast-2.amazonaws.com/dev/employees?file_key=YOU_UPLOADED_CSV_FILE
+```
+
+# Unit test
+
+Install pip libs from requirements.dev.txt and run pytest in test directory.
+
+```
+pipenv shell
+pipenv install -r requirements.dev.txt
+cd test
+pytest -s
 ```
