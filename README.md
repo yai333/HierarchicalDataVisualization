@@ -27,7 +27,7 @@ The following must be done before following this guide:
 - Install Serverless Framework.
 - Install pip libs from requirment.dev.txt for unit test or requirements.text for deployment
 
-* There are some sample csv files with different scenarios in `test/documents/`
+There are some sample csv files with different scenarios in `test/documents/`
 
 # CI/CD
 
