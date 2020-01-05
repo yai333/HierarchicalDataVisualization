@@ -27,6 +27,8 @@ The following must be done before following this guide:
 - Install Serverless Framework.
 - Install pip libs from requirment.dev.txt for unit test or requirements.text for deployment
 
+* There are some sample csv files with different scenarios in `test/documents/`
+
 # CI/CD
 
 The project already setups with CircleCI, you can integrate your repo to CircleCI to Automate the whole CI/CD flow.
