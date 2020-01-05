@@ -21,7 +21,7 @@ The following must be done before following this guide:
 
 # Diagram
 
-![](diagram.png)
+![](diagram.jpg)
 
 # CI/CD
 
