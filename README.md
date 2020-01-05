@@ -9,8 +9,7 @@ This is demo how to convert csv with multi levels relationship data to hierarchi
 
 # Prerequisites
 
-The project already setups with CircleCI, you can integrate your repo to CircleCI to Automate the whole CI/CD flow.
-If you want to test and deploy locally, The following must be done before following this guide:
+The following must be done before following this guide:
 
 - Setup an AWS account.
 - Configure the AWS CLI with user credentials.
@@ -21,6 +20,11 @@ If you want to test and deploy locally, The following must be done before follow
 # Diagram
 
 ![](diagram.png)
+
+# CI/CD
+
+The project already setups with CircleCI, you can integrate your repo to CircleCI to Automate the whole CI/CD flow.
+check out `.circle/config.yml`.
 
 # Run script in Jupiter notebook
 
